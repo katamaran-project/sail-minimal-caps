@@ -18,9 +18,10 @@ register instr_count : int
 overload print = { print_endline }
 
 function print_register_dump() : unit -> unit = {
-  print(concat_str("PC: ", wordToString(Cap(PC))));
-  foreach (i from 0 to 3)  // TODO: use length function (currently gives error in gcc compilation)
-    print(concat_str(concat_str(regname(i), ": "), wordToString(*(registers[i]))))
+  //print(concat_str("PC: ", wordToString(Cap(PC))));
+  //foreach (i from 0 to 3)  // TODO: use length function (currently gives error in gcc compilation)
+    //print(concat_str(concat_str(regname(i), ": "), wordToString(*(registers[i]))))
+    ()
 }
 
 val cycle_limit_reached = pure { ocaml: "cycle_limit_reached", c: "cycle_limit_reached" } : unit -> bool

@@ -20,10 +20,13 @@ function addPC(offset) = {
 }
 
 val MEMw : (address, word) -> bool
+function MEMw(addr, v) = true
 
 val MEMr : address -> word
+function MEMr(addr) = Num(sail_zeros(integer_size))
 
 val MEMri : address -> instruction
+function MEMri(addr) = sail_zeros(32)
 
 val not = pure {coq:"negb", _:"not"} : bool -> bool
 

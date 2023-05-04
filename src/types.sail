@@ -31,4 +31,4 @@ register R3 : word
 
 function regname(i) : int -> string = concat_str_dec("R", i)
 
-let registers : vector(4, dec, register(word)) = [ ref R3, ref R2, ref R1, ref R0 ]
+// let registers : vector(4, dec, register(word)) = [ ref R3, ref R2, ref R1, ref R0 ]

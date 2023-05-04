@@ -35,17 +35,29 @@ union clause ast = RET           : unit
 
 val writeReg : (regname, word) -> unit
 function writeReg(rs, w) = {
-  let i = unsigned(rs) in
-  if i != 0
-  then (*registers[i]) = w
+  match rs {
+    0b00 => R0 = w,
+    0b01 => R1 = w,
+    0b10 => R2 = w,
+    0b11 => R3 = w
+  }
+  // let i = unsigned(rs) in
+  // if i != 0
+  // then (*registers[i]) = w
 }
 
 val readReg : src -> word
 function readReg(rs) = {
-  let i = unsigned(rs) in
-  if i == 0
-  then Num(sail_zeros(integer_size))
-  else *(registers[i])
+  match rs {
+    0b00 => Num(sail_zeros(integer_size)),
+    0b01 => R1,
+    0b10 => R2,
+    0b11 => R3
+  }
+  // let i = unsigned(rs) in
+  // if i == 0
+  // then Num(sail_zeros(integer_size))
+  // else *(registers[i])
 }
 
 val readRegCap : src -> Capability
